@@ -6,6 +6,7 @@ total_cases = exerciciA.casos_totals_mes_pais()
 #reproduction_rate = exerciciA.reproduction_rate_mes_pais()
 
 total_cases.plot()
-plt.xlabel('paisos')
+plt.xlabel('mesos')
 plt.ylabel('total cases')
+plt.legend(title="països")
 plt.show()

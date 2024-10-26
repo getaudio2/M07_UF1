@@ -4,7 +4,6 @@ def casos_totals_mes_pais():
     arxiu = pd.read_csv("df_covid19_countries.csv", usecols=['location','date','total_cases'])
 
     paisos = arxiu['location'].unique()[:10] # Agafem els 10 primer països sense repetir
-    #mesos = ['2020-03','2020-04','2020-05', '2020-06'] # Seleccionem la data dels 4 mesos
     mesos = pd.date_range('2020-03', periods=4, freq='M') # Seleccionem els 4 mesos
 
     arxiu['date'] = pd.to_datetime(arxiu['date']) # Convertim date a datetime
@@ -12,15 +11,10 @@ def casos_totals_mes_pais():
     arxiu_filtrat = arxiu[arxiu['location'].isin(paisos) & arxiu['date'].isin(mesos)]  # Filtrem les rows amb els països i mesos anteriors
     grup = arxiu_filtrat.groupby(['location', 'mes'])['total_cases'].sum().reset_index() # Agrupem per països i mesos i afegim la suma de casos per mes
 
-    location_list = grup['location'].values.tolist()
-    total_cases_list = grup['total_cases'].values.tolist()
-    mesos_list = grup['mes'].values.tolist()
-    print(grup['mes'])
+    grup = grup.pivot(index='mes', columns='location', values='total_cases') # Creem una columna per pais amb 4 rows pels casos segons el mes
 
-    df = pd.DataFrame(total_cases_list, location_list, columns=['total cases'])
-
-    print(df)
-    return df
+    print(grup)
+    return grup
 
 
 def morts_totals_mes_pais_2021():
