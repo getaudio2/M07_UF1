@@ -5,7 +5,6 @@ def create_table():
     try:
         conn = create_connection()
         connection = conn.cursor()
-        print(connection)
 
         sql = '''CREATE TABLE USERS(
                         user_id SERIAL PRIMARY KEY,

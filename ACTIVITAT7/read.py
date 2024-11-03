@@ -5,7 +5,6 @@ def read_all():
     try:
         conn = create_connection()
         connection = conn.cursor()
-        print(connection)
 
         query = "SELECT * FROM USERS;"
 

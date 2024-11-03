@@ -17,14 +17,26 @@ def crud_menu():
         opcio = input("Tria una opcio: ")
 
         if opcio == '1':
-            create_user()
+            name = input("Nom-> ")
+            surname = input("Cognom-> ")
+            age = input("Edat-> ")
+            email = input("Email-> ")
+            create_user(name, surname, age, email)
+            print("Usuari creat!")
         elif opcio == '2':
-            read_all()
+            print(read_all())
         elif opcio == '3':
-            update_user()
+            id = input("Id-> ")
+            name = input("Nom-> ")
+            surname = input("Cognom-> ")
+            age = input("Edat-> ")
+            email = input("Email-> ")
+            update_user(id, name, surname, age, email)
+            print("Usuari actualitzat!")
         elif opcio == '4':
             delete_user(input("Id-> "))
+            print("Usuari eliminat!")
         elif opcio == '5':
-            print("Sortint")
+            print("Sortint del programa...")
             break
 crud_menu()
