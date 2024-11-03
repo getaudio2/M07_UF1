@@ -1,16 +1,15 @@
 import psycopg2 as pg
 from connection import create_connection
 
-def update_user(id, col):
+def delete_user(id):
     try:
         conn = create_connection()
         connection = conn.cursor()
         print(connection)
 
-        query = "update USERS SET user_email = %s WHERE user_id = %s;"
+        query = "DELETE FROM USERS WHERE user_id = %s;"
 
-        values = (col, id)
-        connection.execute(query, values)
+        connection.execute(query, (id,))
         rows_updated = connection.rowcount
 
         conn.commit()
