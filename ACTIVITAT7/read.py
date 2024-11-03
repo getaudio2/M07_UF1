@@ -10,10 +10,12 @@ def read_all():
 
         connection.execute(query)
 
+        # Agafem les rows resultants de la query
         usuaris = connection.fetchall()
     except(Exception, pg.Error) as error:
         print("Error: ", error)
     finally:
         conn.close()
 
+    # Retornem els usuaris per mostrar-los per pantalla
     return usuaris

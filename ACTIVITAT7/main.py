@@ -5,7 +5,10 @@ from update import update_user
 from delete import delete_user
 
 def crud_menu():
+    # Creem la taula USERS primer de tot
     create_table()
+
+    # Bucle per les funcions CRUD al terminal
     while True:
         print("\n--- Menu CRUD ---")
         print("1. Crear usuari")
@@ -14,6 +17,7 @@ def crud_menu():
         print("4. Eliminar usuari")
         print("5. Sortir")
 
+        # Llegeix l'input de l'usuari per triar l'opció CRUD dessitjada
         opcio = input("Tria una opcio: ")
 
         if opcio == '1':
@@ -21,20 +25,20 @@ def crud_menu():
             surname = input("Cognom-> ")
             age = input("Edat-> ")
             email = input("Email-> ")
-            create_user(name, surname, age, email)
+            create_user(name, surname, age, email) # Trucada a la funció de CREATE
             print("Usuari creat!")
         elif opcio == '2':
-            print(read_all())
+            print(read_all()) # Trucada a la funció de READ
         elif opcio == '3':
             id = input("Id-> ")
             name = input("Nom-> ")
             surname = input("Cognom-> ")
             age = input("Edat-> ")
             email = input("Email-> ")
-            update_user(id, name, surname, age, email)
+            update_user(id, name, surname, age, email) # Trucada a la funció de UPDATE
             print("Usuari actualitzat!")
         elif opcio == '4':
-            delete_user(input("Id-> "))
+            delete_user(input("Id-> ")) # Trucada a la funció de DELETE
             print("Usuari eliminat!")
         elif opcio == '5':
             print("Sortint del programa...")

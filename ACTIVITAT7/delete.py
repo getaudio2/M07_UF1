@@ -8,7 +8,7 @@ def delete_user(id):
 
         query = "DELETE FROM USERS WHERE user_id = %s;"
 
-        connection.execute(query, (id,))
+        connection.execute(query, (id,)) # Executem la query per eliminar l'usuari segons l'id
 
         conn.commit()
     except(Exception, pg.Error) as error:

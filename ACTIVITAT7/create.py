@@ -10,6 +10,7 @@ def create_user(name, surname, age, email):
 
         values = (name,surname,age,email)
 
+        # Executem la query amb els valors de les variables
         connection.execute(query, values)
         conn.commit()
     except(Exception, pg.Error) as error:

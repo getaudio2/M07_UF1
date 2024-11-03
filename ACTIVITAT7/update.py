@@ -12,6 +12,7 @@ def update_user(id, name, surname, age, email):
                     WHERE user_id = %s;'''
 
         values = (name, surname, age, email, id)
+        # Executem la query per actualitzar les dades de l'usuari segons l'id
         connection.execute(query, values)
 
         conn.commit()
